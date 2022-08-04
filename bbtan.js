@@ -649,7 +649,6 @@ window.addEventListener('mousedown', (event) => {                               
     
 })
 
-
 window.addEventListener('mouseup', (event) => {                                     // 滑鼠放開
     if (!Ball.all_launch && bricks.every(brick => !brick.action)) {
         switch (event.button) {
@@ -665,7 +664,40 @@ window.addEventListener('mouseup', (event) => {                                 
     }
     
 })
-        
+
+window.addEventListener('touchmove', (event) => {                                 // 取得手指座標
+    player.mouse_event.x = event.pageX
+    player.mouse_event.y = event.pageY
+})
+
+window.addEventListener('touchstart', (event) => {                                   // 手指按下
+    if (!Ball.all_launch && bricks.every(brick => !brick.action)) {
+        switch (event.button) {
+            case 0:
+                console.log('left mouse down')
+                player.mouse_event.down = true
+                player.mouse_event.up = false
+                break
+        }
+    }
+    event.preventDefault();
+})
+
+window.addEventListener('touchend', (event) => {                                     // 手指放開
+    if (!Ball.all_launch && bricks.every(brick => !brick.action)) {
+        switch (event.button) {
+            case 0:
+                console.log('left mouse up')
+                player.mouse_event.up = true
+                player.mouse_event.down = false
+                Ball.all_launch = true
+                Ball.first_ball_arrive = true
+                counter.u = 1
+                break
+        }
+    }
+    
+})
 
 function circleCollidesWithRectangleBoundaryBounce({ circle, rectangle }) {                       // 圓形方形碰撞回彈
     if (circle.next_position.x - circle.radius <= boundaries[0].position.x + Boundary.width) {
