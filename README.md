@@ -1,5 +1,5 @@
 # bbtan
-Is a fake bbtan haha. enjoy~
+Fake bbtan. enjoy~
 
 Click this URL to play (use computer) https://bbtan.vercel.app/bbtan.html
 
