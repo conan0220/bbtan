@@ -268,8 +268,8 @@ class Ball {
 }
 
 class Boundary {
-    static width = 60
-    static height = 60
+    static width = 50
+    static height = 50
     static stick_width = 10                                 // 邊界棍子寬
     static stick_height = Boundary.height                                // 邊界棍子高
 
@@ -361,7 +361,7 @@ class Brick {
                 
                 c.stroke()
                 c.textAlign = 'center'
-                c.font = '18px Arial Black'
+                c.font = '15px Arial Black'
                 c.fillStyle = 'rgba('+this.color.r+', '+this.color.g+', '+this.color.b+', '+this.color.a+')'
                 c.fillText(this.remain, this.position.x + Brick.width / 2, this.position.y + Brick.height / 2 + Brick.stick_width)
         }
